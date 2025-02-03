@@ -6,7 +6,7 @@
 /*   By: mpietrza <mpietrza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 13:38:31 by mpietrza          #+#    #+#             */
-/*   Updated: 2025/01/31 17:52:47 by mpietrza         ###   ########.fr       */
+/*   Updated: 2025/02/03 15:55:34 by mpietrza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,4 +112,28 @@ std::string ClapTrap::getName() const
 int ClapTrap::getAttackDamage() const
 {
 	return _attackDamage;
+}
+
+//getter for the energy points
+int ClapTrap::getEnergyPoints() const
+{
+	return _energyPoints;
+}
+
+//getter for the repair points
+int ClapTrap::getRepairPoints() const
+{
+	return _repairPoints;
+}
+
+//setter for the attackDamage
+void ClapTrap::setAttackDamage(int damage)
+{
+	_attackDamage = damage;
+}
+
+//setter for the repair points
+void ClapTrap::setRepairPoints(int hitPoints)
+{
+	_repairPoints = hitPoints;
 }
