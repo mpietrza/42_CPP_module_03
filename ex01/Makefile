@@ -6,7 +6,7 @@
 #    By: mpietrza <mpietrza@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/04 17:29:38 by mpietrza          #+#    #+#              #
-#    Updated: 2025/01/30 17:19:05 by mpietrza         ###   ########.fr        #
+#    Updated: 2025/01/31 17:39:49 by mpietrza         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,8 +31,7 @@ C = "\033[36m"
 W = "\033[37m"
 
 #SOURCES
-SRC		= Fixed.cpp \
-		  ClapTrap.cpp \
+SRC		= ClapTrap.cpp \
 		  main.cpp 
 
 OBJS	= $(addprefix $(DIR_OBJS), $(SRC:.cpp=.o))
