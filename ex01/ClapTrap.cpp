@@ -6,7 +6,7 @@
 /*   By: mpietrza <mpietrza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 13:38:31 by mpietrza          #+#    #+#             */
-/*   Updated: 2025/02/04 16:02:33 by mpietrza         ###   ########.fr       */
+/*   Updated: 2025/02/05 13:59:06 by mpietrza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ ClapTrap::ClapTrap() : _hitPoints(10), _energyPoints(10), _attackDamage(0)
 }
 
 //parametrized constructor
-ClapTrap::ClapTrap(const std::string &name) : _name(name) , _hitPoints(10), _energyPoints(10), _attackDamage(0)
+ClapTrap::ClapTrap(const std::string &name) : _name(name), _typeName("ClapTrap"), _hitPoints(10), _energyPoints(10), _attackDamage(0)
 {
 	std::cout << "ClapTrap " << name << " created by the parametrized constructor" << std::endl;
 }
@@ -59,14 +59,14 @@ void	ClapTrap::attack(const std::string &target)
 {
 	if (_hitPoints > 0 && _energyPoints > 0)
 	{
-		std::cout << "ClapTrap " << _name << " attacks " << target 
+		std::cout << _typeName << " " << _name << " attacks " << target 
 				  << " causing " << _attackDamage << " points of damage!" << std::endl;
 		_energyPoints--;
 	}
 	else if (_energyPoints == 0)
-		std::cout << "ClapTrap " << _name << " has no energy left to attack" << std::endl;
+		std::cout << _typeName << " " << _name << " has no energy left to attack" << std::endl;
 	else
-		std::cout << "ClapTrap " << _name << " has no hit points left to attack" << std::endl;
+		std::cout << _typeName << " " << _name << " has no hit points left to attack" << std::endl;
 }
 
 //public member function takeDamage
@@ -77,10 +77,10 @@ void	ClapTrap::takeDamage(unsigned int amount)
 		_hitPoints -= amount;
 		if (_hitPoints < 0)
 			_hitPoints = 0;
-		std::cout << "ClapTrap " << _name << " takes " << amount << " points of damage!" << std::endl;
+		std::cout << _typeName << " " << _name << " takes " << amount << " points of damage!" << std::endl;
 	}
 	else
-		std::cout << "ClapTrap " << _name << " is already destroyed!" << std::endl;
+		std::cout << _typeName << " " << _name << " is already destroyed!" << std::endl;
 }
 
 //public member function beRepaired
@@ -90,19 +90,19 @@ void	ClapTrap::beRepaired(unsigned int amount)
 	{
 		_hitPoints += amount;
 		_energyPoints--;
-		std::cout << "ClapTrap " << _name << " has been repaired by " << amount << " points!" << std::endl;
+		std::cout << _typeName << " " << _name << " has been repaired by " << amount << " points!" << std::endl;
 	}
 	else
-		std::cout << "ClapTrap " << _name << " lacks energy points to be repaired!" << std::endl;
+		std::cout << _typeName << " " << _name << " lacks energy points to be repaired!" << std::endl;
 }
 
 void ClapTrap::printStatus()
 {
-	std::cout << BOLD << "Name: " << this->_name << RESET << std::endl;
-	std::cout << GRN << "Hit points" << RESET << ": " << this->_hitPoints << std::endl;
-	std::cout << RED << "Energy points" << RESET << ": " << this->_energyPoints << std::endl;
-	std::cout << "Attack damage: "<< GRN <<"hit points ScavTrap will lose: " << this->_attackDamage << std::endl;
-	std::cout << "Repair points: " << GRN << "hit points " << RESET << this->_name << " gets back each repair: " << this->_repairPoints << std::endl;
+	std::cout << BOLD << _typeName << " " << _name << RESET << std::endl;
+	std::cout << GRN << "Hit points" << RESET << ": " << _hitPoints << std::endl;
+	std::cout << RED << "Energy points" << RESET << ": " << _energyPoints << std::endl;
+	std::cout << "Attack damage: "<< GRN << "hit points" << RESET << " the enemy will lose: " << _attackDamage << std::endl;
+	std::cout << "Repair points: " << GRN << "hit points " << RESET << _name << " gets back each repair: " << this->_repairPoints << std::endl;
 	std::cout << std::endl;
 }
 

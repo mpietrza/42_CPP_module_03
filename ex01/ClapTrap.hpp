@@ -6,7 +6,7 @@
 /*   By: mpietrza <mpietrza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 17:19:46 by mpietrza          #+#    #+#             */
-/*   Updated: 2025/02/04 16:05:53 by mpietrza         ###   ########.fr       */
+/*   Updated: 2025/02/05 13:48:32 by mpietrza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ class ClapTrap
 {
 	protected:
 		std::string	_name;
+		std::string _typeName;
 		int			_hitPoints;
 		int			_energyPoints;
 		int			_attackDamage;

@@ -6,11 +6,11 @@
 #    By: mpietrza <mpietrza@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/04 17:29:38 by mpietrza          #+#    #+#              #
-#    Updated: 2025/01/31 17:39:49 by mpietrza         ###   ########.fr        #
+#    Updated: 2025/02/05 13:13:13 by mpietrza         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = ClapTrap
+NAME = ScavTrap
 CC = c++
 CFLAGS = -Wall -Wextra -Werror #-g -O0
 STD = -std=c++98
@@ -32,6 +32,7 @@ W = "\033[37m"
 
 #SOURCES
 SRC		= ClapTrap.cpp \
+		  ScavTrap.cpp \
 		  main.cpp 
 
 OBJS	= $(addprefix $(DIR_OBJS), $(SRC:.cpp=.o))
@@ -57,19 +58,19 @@ $(DIR_OBJS):
 
 $(NAME): $(OBJS) Makefile
 	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
-	@echo $(G)ClapTrap compiled successfully! $(DEF_COLOR)
+	@echo $(G)ScavTrap compiled successfully! $(DEF_COLOR)
 
 clean:
 	@echo $(GRAY)
 	$(RM) $(OBJS) $(DEPS) $(DIR_OBJS)
-	@echo $(G)ClapTrap object files erased successfully! $(DEF_COLOR)
+	@echo $(G)ScavTrap object files erased successfully! $(DEF_COLOR)
 
 fclean: clean
 	@echo $(GRAY)
 	$(RM) $(NAME)
-	@echo $(G)ClapTrap executable files erased succesfully! $(DEF_COLOR)
+	@echo $(G)ScavTrap executable files erased succesfully! $(DEF_COLOR)
 
 re: fclean all
-	@echo $(G)Erased and recompiled every file of ClapTrap successfully! $(DEF_COLOR)
+	@echo $(G)Erased and recompiled every file of ScavTrap successfully! $(DEF_COLOR)
 
 .PHONY: all clean fclean re
