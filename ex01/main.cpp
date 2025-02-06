@@ -6,7 +6,7 @@
 /*   By: mpietrza <mpietrza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 15:55:28 by mpietrza          #+#    #+#             */
-/*   Updated: 2025/02/06 16:10:29 by mpietrza         ###   ########.fr       */
+/*   Updated: 2025/02/06 19:10:15 by mpietrza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,8 @@ void actionsClapTrap(ClapTrap &player, ScavTrap &target)
 	if (input == "a")
 	{
 		player.attack(target.getName());
-		target.takeDamage(player.getAttackDamage());
+		if (player.getEnergyPoints() > 0 && player.getHitPoints() > 0)
+			target.takeDamage(player.getAttackDamage());
 	}
 	else if (input == "r")
 		player.beRepaired(player.getRepairPoints());
@@ -66,7 +67,8 @@ void actionsScavTrap(ScavTrap &player, ClapTrap &target)
 	if (input == "a")
 	{
 		player.attack(target.getName());
-		target.takeDamage(player.getAttackDamage());
+		if (player.getEnergyPoints() > 0 && player.getHitPoints() > 0)
+			target.takeDamage(player.getAttackDamage());
 	}
 	else if (input == "r")
 		player.beRepaired(player.getRepairPoints());

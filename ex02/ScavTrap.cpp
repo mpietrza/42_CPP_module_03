@@ -6,7 +6,7 @@
 /*   By: mpietrza <mpietrza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 15:05:27 by mpietrza          #+#    #+#             */
-/*   Updated: 2025/02/06 16:02:52 by mpietrza         ###   ########.fr       */
+/*   Updated: 2025/02/06 18:25:56 by mpietrza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,16 +67,16 @@ ScavTrap::~ScavTrap()
 	std::cout << "ScavTrap Default destructor called" << std::endl;
 }
 
-void ScavTrap::guardGate()
+void ScavTrap::guardGate() const
 {
 	if (_guardGateMode == true)
 	{
-		std::cout << BOLD << BLU << "ScavTrap is in Gate keeper mode" << RESET << std::endl;
+		std::cout << BOLD << BLU << _typeName << " is in Gate keeper mode" << RESET << std::endl;
 		std::cout << std::endl;
 	}
 	else
 	{
-		std::cout << BLU << "ScavTrap is not in Gate keeper mode" << RESET << std::endl;
+		std::cout << BLU << _typeName << " is not in Gate keeper mode" << RESET << std::endl;
 		std::cout << std::endl;
 	}
 }

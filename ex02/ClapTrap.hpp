@@ -6,7 +6,7 @@
 /*   By: mpietrza <mpietrza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 17:19:46 by mpietrza          #+#    #+#             */
-/*   Updated: 2025/02/06 15:53:44 by mpietrza         ###   ########.fr       */
+/*   Updated: 2025/02/06 17:37:25 by mpietrza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ class ClapTrap
 		void	takeDamage(unsigned int amount);
 		void	beRepaired(unsigned int amount);
 
-		virtual void 	printStatus();
+		virtual void 	printStatus() const;
 
 		int			getHitPoints() const;
 		std::string	getName() const;

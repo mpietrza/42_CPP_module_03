@@ -6,7 +6,7 @@
 /*   By: mpietrza <mpietrza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 13:26:22 by mpietrza          #+#    #+#             */
-/*   Updated: 2025/02/06 16:00:24 by mpietrza         ###   ########.fr       */
+/*   Updated: 2025/02/06 17:38:46 by mpietrza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ class ScavTrap : public ClapTrap
 		ScavTrap &operator=(const ScavTrap &other);
 		~ScavTrap();
 
-		void	guardGate();
+		void	guardGate() const;
 		
 		bool	getGuardGateMode() const;
 		

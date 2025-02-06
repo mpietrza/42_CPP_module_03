@@ -6,7 +6,7 @@
 /*   By: mpietrza <mpietrza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 13:26:22 by mpietrza          #+#    #+#             */
-/*   Updated: 2025/02/05 16:34:34 by mpietrza         ###   ########.fr       */
+/*   Updated: 2025/02/06 17:38:01 by mpietrza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ class FragTrap : public ClapTrap
 		FragTrap &operator=(const FragTrap &other);
 		~FragTrap();
 
-		void	highFivesGuys(void);
+		void	highFivesGuys(void) const;
 };
 
 #endif

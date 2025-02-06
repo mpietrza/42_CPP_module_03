@@ -6,7 +6,7 @@
 /*   By: mpietrza <mpietrza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 15:55:28 by mpietrza          #+#    #+#             */
-/*   Updated: 2025/02/06 16:00:17 by mpietrza         ###   ########.fr       */
+/*   Updated: 2025/02/06 19:09:47 by mpietrza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,8 @@ void actionsClapTrap(ClapTrap &player, T &target)
 	if (input == "a")
 	{
 		player.attack(target.getName());
-		target.takeDamage(player.getAttackDamage());
+		if (player.getEnergyPoints() > 0 && player.getHitPoints() > 0)
+			target.takeDamage(player.getAttackDamage());
 	}
 	else if (input == "r")
 		player.beRepaired(player.getRepairPoints());
@@ -69,7 +70,8 @@ void actionsScavTrap(ScavTrap &player, T &target)
 	if (input == "a")
 	{
 		player.attack(target.getName());
-		target.takeDamage(player.getAttackDamage());
+		if (player.getEnergyPoints() > 0 && player.getHitPoints() > 0)
+			target.takeDamage(player.getAttackDamage());
 	}
 	else if (input == "r")
 		player.beRepaired(player.getRepairPoints());
@@ -100,7 +102,8 @@ void actionsFragTrap(FragTrap &player, T &target)
 	if (input == "a")
 	{
 		player.attack(target.getName());
-		target.takeDamage(player.getAttackDamage());
+		if (player.getEnergyPoints() > 0 && player.getHitPoints() > 0)
+			target.takeDamage(player.getAttackDamage());
 	}
 	else if (input == "r")
 		player.beRepaired(player.getRepairPoints());
@@ -119,7 +122,7 @@ int main(void)
 	std::cout << "ClapTrap, ScavTrap and FragTrap will fight until one of them dies." << std::endl;
 	std::cout << "ClapTrap has 10 " << GRN << "hit points" << RESET << " and 10 " << RED << "energy points" << RESET << "." << std::endl;
 	std::cout << "ScavTrap has 100 " << GRN << "hit points" << RESET << " and 50 " << RED << "energy points" << RESET << "." << std::endl;
-	std::cout << "ScavTrap has 100 " << GRN << "hit points" << RESET << " and 100 " << RED << "energy points" << RESET << "." << std::endl;
+	std::cout << "FragTrap has 100 " << GRN << "hit points" << RESET << " and 100 " << RED << "energy points" << RESET << "." << std::endl;
 	std::cout << "Attacking and repairing cost 1 " << RED << "energy point" << RESET << " each." << std::endl;
 	std::cout << std::endl;
 

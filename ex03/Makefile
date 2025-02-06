@@ -6,11 +6,11 @@
 #    By: mpietrza <mpietrza@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/04 17:29:38 by mpietrza          #+#    #+#              #
-#    Updated: 2025/02/05 14:15:09 by mpietrza         ###   ########.fr        #
+#    Updated: 2025/02/06 18:32:01 by mpietrza         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = FragTrap
+NAME = DiamondTrap
 CC = c++
 CFLAGS = -Wall -Wextra -Werror #-g -O0
 STD = -std=c++98
@@ -34,6 +34,7 @@ W = "\033[37m"
 SRC		= ClapTrap.cpp \
 		  ScavTrap.cpp \
 		  FragTrap.cpp \
+		  DiamondTrap.cpp \
 		  main.cpp 
 
 OBJS	= $(addprefix $(DIR_OBJS), $(SRC:.cpp=.o))
@@ -59,19 +60,19 @@ $(DIR_OBJS):
 
 $(NAME): $(OBJS) Makefile
 	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
-	@echo $(G)FragTrap compiled successfully! $(DEF_COLOR)
+	@echo $(G)DiamondTrap compiled successfully! $(DEF_COLOR)
 
 clean:
 	@echo $(GRAY)
 	$(RM) $(OBJS) $(DEPS) $(DIR_OBJS)
-	@echo $(G)FragTrap object files erased successfully! $(DEF_COLOR)
+	@echo $(G)DiamondTrap object files erased successfully! $(DEF_COLOR)
 
 fclean: clean
 	@echo $(GRAY)
 	$(RM) $(NAME)
-	@echo $(G)FragTrap executable files erased succesfully! $(DEF_COLOR)
+	@echo $(G)DiamondTrap executable files erased succesfully! $(DEF_COLOR)
 
 re: fclean all
-	@echo $(G)Erased and recompiled every file of FragTrap successfully! $(DEF_COLOR)
+	@echo $(G)Erased and recompiled every file of DiamondTrap successfully! $(DEF_COLOR)
 
 .PHONY: all clean fclean re

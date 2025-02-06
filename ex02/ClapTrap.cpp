@@ -6,7 +6,7 @@
 /*   By: mpietrza <mpietrza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 13:38:31 by mpietrza          #+#    #+#             */
-/*   Updated: 2025/02/05 13:59:06 by mpietrza         ###   ########.fr       */
+/*   Updated: 2025/02/06 17:37:35 by mpietrza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,7 +96,7 @@ void	ClapTrap::beRepaired(unsigned int amount)
 		std::cout << _typeName << " " << _name << " lacks energy points to be repaired!" << std::endl;
 }
 
-void ClapTrap::printStatus()
+void ClapTrap::printStatus() const
 {
 	std::cout << BOLD << _typeName << " " << _name << RESET << std::endl;
 	std::cout << GRN << "Hit points" << RESET << ": " << _hitPoints << std::endl;

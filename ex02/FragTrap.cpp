@@ -6,7 +6,7 @@
 /*   By: mpietrza <mpietrza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 15:05:27 by mpietrza          #+#    #+#             */
-/*   Updated: 2025/02/05 16:41:16 by mpietrza         ###   ########.fr       */
+/*   Updated: 2025/02/06 17:38:25 by mpietrza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ FragTrap::~FragTrap()
 	std::cout << "FragTrap Default destructor called" << std::endl;
 }
 
-void FragTrap::highFivesGuys(void)
+void FragTrap::highFivesGuys(void) const
 {
 	std::cout << BOLD << MGT << "Hi fives Guys!!!" << std::endl;
 	std::this_thread::sleep_for(std::chrono::milliseconds(500));
