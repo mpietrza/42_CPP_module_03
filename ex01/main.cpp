@@ -6,35 +6,36 @@
 /*   By: mpietrza <mpietrza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 15:55:28 by mpietrza          #+#    #+#             */
-/*   Updated: 2025/02/05 14:02:36 by mpietrza         ###   ########.fr       */
+/*   Updated: 2025/02/06 16:10:29 by mpietrza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 #include "ScavTrap.hpp"
 #include <stdexcept>
+#include <climits>
 
 int getValidIntegerInput(const std::string& prompt) 
 {
 	std::string input;
 	int value;
-	while (true) 
-	{
+	while (true) {
 		std::cout << prompt;
 		std::getline(std::cin, input);
-		if (std::cin.eof() == true)
-		{
+		if (std::cin.eof() == true) {
 			std::cout << "\nCtrl - D pressed - exiting the game" << std::endl;
 			std::exit(0);
 		}
-		try 
-		{
+		try {
 			value = std::stoi(input);
+			if (value < 0 || value > INT_MAX) {
+				throw std::out_of_range("Input out of range");
+			}
 			break;
-		}
-		catch (const std::invalid_argument&) 
-		{
-			std::cout << RED <<"Invalid input. Please enter a valid integer." << RESET << std::endl;
+		} catch (const std::out_of_range&) {
+			std::cout << RED << "Input out of range. Please enter a valid non-negative integer." << RESET << std::endl;
+		} catch (const std::invalid_argument&) {
+			std::cout << RED << "Invalid input. Please enter a valid non-negative integer." << RESET << std::endl;
 		}
 	}
 	return value;
@@ -60,8 +61,6 @@ void actionsClapTrap(ClapTrap &player, ScavTrap &target)
 void actionsScavTrap(ScavTrap &player, ClapTrap &target)
 {
 	std::string	input;
-	if (player.getGuardGateMode() == true)
-		player.guardGate();
 	std::cout << "Choose action for ScavTrap: 'a' to attack, 'r' to repair, 'g' to turn on or off the Gate keeper mode" << std::endl;
 	std::getline(std::cin, input);
 	if (input == "a")
@@ -146,6 +145,8 @@ int main(void)
 		}
 		clapTrap.printStatus();
 		scavTrap.printStatus();
+		scavTrap.guardGate();
+		std::cout << std::endl;
 		if (clapTrap.getHitPoints() <=0)
 			std::cout << BOLD_YLW << "ScavTrap wins!" << RESET << std::endl;
 		if (scavTrap.getHitPoints() <=0)

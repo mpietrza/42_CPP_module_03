@@ -6,7 +6,7 @@
 /*   By: mpietrza <mpietrza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 15:05:27 by mpietrza          #+#    #+#             */
-/*   Updated: 2025/02/05 14:01:48 by mpietrza         ###   ########.fr       */
+/*   Updated: 2025/02/06 16:09:20 by mpietrza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,16 @@ ScavTrap::~ScavTrap()
 
 void ScavTrap::guardGate()
 {
-	std::cout << BOLD << BLU << "ScavTrap is now in Gate keeper mode" << RESET << std::endl;
+	if (_guardGateMode == true)
+	{
+		std::cout << BOLD << BLU << "ScavTrap is in Gate keeper mode" << RESET << std::endl;
+		std::cout << std::endl;
+	}
+	else
+	{
+		std::cout << BLU << "ScavTrap is not in Gate keeper mode" << RESET << std::endl;
+		std::cout << std::endl;
+	}
 }
 
 bool ScavTrap::getGuardGateMode() const
