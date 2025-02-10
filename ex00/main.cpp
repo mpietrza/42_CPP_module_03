@@ -6,13 +6,13 @@
 /*   By: mpietrza <mpietrza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 15:55:28 by mpietrza          #+#    #+#             */
-/*   Updated: 2025/02/06 17:40:45 by mpietrza         ###   ########.fr       */
+/*   Updated: 2025/02/10 17:35:58 by mpietrza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
-#include <stdexcept>
 #include <climits>
+#include <cstdlib>
 
 // ANSI escape codes for text formatting
 const std::string RESET = "\033[0m";
@@ -46,22 +46,30 @@ int getValidIntegerInput(const std::string& prompt)
 {
 	std::string input;
 	int value;
-	while (true) {
+	while (true)
+	{
 		std::cout << prompt;
 		std::getline(std::cin, input);
-		if (std::cin.eof() == true) {
+		if (std::cin.eof() == true)
+		{
 			std::cout << "\nCtrl - D pressed - exiting the game" << std::endl;
-			std::exit(0);
+			exit(0);
 		}
-		try {
-			value = std::stoi(input);
-			if (value < 0 || value > INT_MAX) {
+		try 
+		{
+			value = atoi(input.c_str());
+			if (value < 0 || value > INT_MAX) 
+			{
 				throw std::out_of_range("Input out of range");
 			}
 			break;
-		} catch (const std::out_of_range&) {
+		}
+		catch (const std::out_of_range&)
+		{
 			std::cout << RED << "Input out of range. Please enter a valid non-negative integer." << RESET << std::endl;
-		} catch (const std::invalid_argument&) {
+		}
+		catch (const std::invalid_argument&)
+		{
 			std::cout << RED << "Invalid input. Please enter a valid non-negative integer." << RESET << std::endl;
 		}
 	}
@@ -119,7 +127,7 @@ int main(void)
 		if (std::cin.eof() == true)
 		{
 			std::cout << "\nCtrl - D pressed - exiting the game" << std::endl;
-			std::exit(0);
+			exit(0);
 		}
 		else if (input == "c")
 			actions(clap, trap);

@@ -6,15 +6,15 @@
 /*   By: mpietrza <mpietrza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 15:55:28 by mpietrza          #+#    #+#             */
-/*   Updated: 2025/02/06 19:09:47 by mpietrza         ###   ########.fr       */
+/*   Updated: 2025/02/10 17:20:37 by mpietrza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 #include "ScavTrap.hpp"
 #include "FragTrap.hpp"
-#include <stdexcept>
 #include <climits>
+#include <cstdlib>
 
 int getValidIntegerInput(const std::string& prompt) 
 {
@@ -23,25 +23,37 @@ int getValidIntegerInput(const std::string& prompt)
 	while (true) {
 		std::cout << prompt;
 		std::getline(std::cin, input);
-		if (std::cin.eof() == true) {
+		if (std::cin.eof() == true) 
+		{
 			std::cout << "\nCtrl - D pressed - exiting the game" << std::endl;
-			std::exit(0);
+			exit(0);
 		}
 		try {
-			value = std::stoi(input);
-			if (value < 0 || value > INT_MAX) {
+			value = atoi(input.c_str());
+			if (value < 0 || value > INT_MAX) 
+			{
 				throw std::out_of_range("Input out of range");
 			}
 			break;
-		} catch (const std::out_of_range&) {
+		} 
+		catch (const std::out_of_range&) 
+		{
 			std::cout << RED << "Input out of range. Please enter a valid non-negative integer." << RESET << std::endl;
-		} catch (const std::invalid_argument&) {
+		} 
+		catch (const std::invalid_argument&) 
+		{
 			std::cout << RED << "Invalid input. Please enter a valid non-negative integer." << RESET << std::endl;
 		}
 	}
 	return value;
 }
 
+/*Yes, you can use templates in your files because templates are a core 
+feature of C++ and not part of the STL. The restriction applies specifically 
+to STL containers (like std::vector, std::map, etc.) and algorithms (like those
+ in <algorithm>). You can still use templates for generic programming as long
+ as you implement your own data structures instead of relying on STL containers.
+ */
 template <typename T>
 void actionsClapTrap(ClapTrap &player, T &target)
 {
@@ -171,7 +183,7 @@ int main(void)
 		if (std::cin.eof() == true)
 		{
 			std::cout << "\nCtrl - D pressed - exiting the game" << std::endl;
-			std::exit(0);
+			exit(0);
 		}
 		else if (input == "cs")
 			actionsClapTrap(clapTrap, scavTrap);

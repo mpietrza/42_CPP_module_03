@@ -6,12 +6,12 @@
 /*   By: mpietrza <mpietrza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 15:05:27 by mpietrza          #+#    #+#             */
-/*   Updated: 2025/02/06 17:38:25 by mpietrza         ###   ########.fr       */
+/*   Updated: 2025/02/10 17:06:46 by mpietrza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "FragTrap.hpp"
-#include <thread>
+#include <unistd.h>
 
 //default constructor
 FragTrap::FragTrap() : ClapTrap()
@@ -67,10 +67,10 @@ FragTrap::~FragTrap()
 void FragTrap::highFivesGuys(void) const
 {
 	std::cout << BOLD << MGT << "Hi fives Guys!!!" << std::endl;
-	std::this_thread::sleep_for(std::chrono::milliseconds(500));
+	usleep(500000);
 	std::cout << YLW << "Hi five!!!" << std::endl;
-	std::this_thread::sleep_for(std::chrono::milliseconds(500));
+	usleep(500000);
 	std::cout << CYN << "Hi five!!!" << RESET << std::endl;
-	std::this_thread::sleep_for(std::chrono::milliseconds(500));
+	usleep(500000);
 }
 

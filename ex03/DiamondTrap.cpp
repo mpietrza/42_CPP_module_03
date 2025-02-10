@@ -6,12 +6,12 @@
 /*   By: mpietrza <mpietrza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 17:41:58 by mpietrza          #+#    #+#             */
-/*   Updated: 2025/02/06 19:15:40 by mpietrza         ###   ########.fr       */
+/*   Updated: 2025/02/10 17:08:18 by mpietrza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "DiamondTrap.hpp"
-#include <thread>
+#include <unistd.h>
 
 //default constructor
 DiamondTrap::DiamondTrap() : ClapTrap(), FragTrap(), ScavTrap()
@@ -70,7 +70,7 @@ DiamondTrap::~DiamondTrap()
 void DiamondTrap::whoAmI()
 {
 	std::cout << "DiamondTrap name: " << _name << ", ClapTrap name: " << ClapTrap::_name << std::endl;
-	std::this_thread::sleep_for(std::chrono::seconds(2));
+	usleep(5000000);
 }
 
 void DiamondTrap::attack(const std::string &target)
