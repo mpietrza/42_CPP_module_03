@@ -6,7 +6,7 @@
 /*   By: mpietrza <mpietrza@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 15:55:28 by mpietrza          #+#    #+#             */
-/*   Updated: 2025/02/10 17:24:21 by mpietrza         ###   ########.fr       */
+/*   Updated: 2025/02/10 17:41:38 by mpietrza         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,9 +35,13 @@ int getValidIntegerInput(const std::string& prompt)
 				throw std::out_of_range("Input out of range");
 			}
 			break;
-		} catch (const std::out_of_range&) {
+		}
+		catch (const std::out_of_range&) 
+		{
 			std::cout << RED << "Input out of range. Please enter a valid non-negative integer." << RESET << std::endl;
-		} catch (const std::invalid_argument&) {
+		}
+		catch (const std::invalid_argument&)
+		{
 			std::cout << RED << "Invalid input. Please enter a valid non-negative integer." << RESET << std::endl;
 		}
 	}
